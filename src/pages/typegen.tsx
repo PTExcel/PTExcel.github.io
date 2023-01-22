@@ -5,9 +5,10 @@ const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
   return (
     <main>
       <p>Site title: {data.site?.siteMetadata?.title}</p>
+      <p>Site title: {JSON.stringify(data.userProfile)}</p>
+      <p>Site title: {JSON.stringify(data.allPortfolio)}</p>
       <hr />
       <p>Query Result:</p>
-      <div>{JSON.stringify(data.allPerson.nodes, null, 2)}</div>
       <pre>
         <code>{JSON.stringify(data, null, 2)}</code>
       </pre>
@@ -24,11 +25,45 @@ export const query = graphql`
         title
       }
     }
-    allPerson {
+    userProfile {
+      firstName
+      lastName
+      features
+      skillGraph {
+        skills {
+          id
+          value
+          content
+          percentage
+        }
+      }
+      backgroundImage {
+        url
+      }
+      pictures {
+        url
+      }
+      aboutMe {
+        html
+      }
+      portfolioSummary {
+        html
+      }
+      cv {
+        fileName
+        url
+      }
+    }
+    allPortfolio {
       nodes {
         id
-        name
-        age
+        title
+        subTitle
+        technologies
+        displayOrder
+        image {
+          url
+        }
       }
     }
   }
