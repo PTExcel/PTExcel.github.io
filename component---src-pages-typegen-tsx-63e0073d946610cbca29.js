@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkptexcel_github_io=self.webpackChunkptexcel_github_io||[]).push([[677],{3275:function(e,t,l){l.r(t);var n=l(7294);t.default=e=>{var t,l;let{data:u}=e;return n.createElement("main",null,n.createElement("p",null,"Site title: ",null===(t=u.site)||void 0===t||null===(l=t.siteMetadata)||void 0===l?void 0:l.title),n.createElement("hr",null),n.createElement("p",null,"Query Result:"),n.createElement("pre",null,n.createElement("code",null,JSON.stringify(u,null,2))))}}}]);
+//# sourceMappingURL=component---src-pages-typegen-tsx-63e0073d946610cbca29.js.map
