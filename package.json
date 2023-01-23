@@ -3,10 +3,10 @@
   "name": "ptexcel.github.io",
   "version": "1.0.0",
   "private": true,
-  "description": "my-gatsby-site",
+  "description": "PT Excel",
   "author": "brandontruong",
   "keywords": [
-    "gatsby"
+    "brandon truong", "PT Excel"
   ],
   "scripts": {
     "develop": "gatsby develop",
