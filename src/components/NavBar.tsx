@@ -1,10 +1,36 @@
-import { Link } from "gatsby";
-import React from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import React, { useState } from "react";
 
 export default function NavBar() {
+  const data = useStaticQuery(graphql`
+    query SiteInfo {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      userProfile {
+        pictures {
+          url
+        }
+      }
+    }
+  `);
+
+  //   //   const { title } = data.site.siteMetadata;
+  console.log("=======", data);
+  const [state, setState] = useState({
+    logo: data.userProfile.pictures[0],
+  });
+
   return (
     <nav className="navbar">
-      <div className="logo">Pt Excel</div>
+      <div className="logo">
+        <a className="navbar-brand">
+          <img src={state.logo.url} alt="logo" style={{ maxWidth: "100px" }} />
+        </a>
+        <span>Pt Excel</span>
+      </div>
       <ul className="nav-links">
         <input type="checkbox" id="checkbox_toggle" />
 

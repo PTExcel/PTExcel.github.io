@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./navBar";
-import "../styles/global.css";
+import "../styles/global.scss";
 
 export default function Layout({ children }) {
   return (
