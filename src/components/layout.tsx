@@ -1,12 +1,12 @@
-import React from 'react'
-import NavBar from './navBar'
+import React from "react";
+import NavBar from "./navBar";
+import "../styles/global.css";
 
 export default function Layout({ children }) {
-    return (
-        <div>
-            <NavBar />
-            hello world
-            <div className='content'>{children}</div>
-        </div >
-    )
+  return (
+    <div>
+      <NavBar />
+      <div className="content">{children}</div>
+    </div>
+  );
 }
