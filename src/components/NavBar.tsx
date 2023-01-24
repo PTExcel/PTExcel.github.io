@@ -17,8 +17,6 @@ export default function NavBar() {
     }
   `);
 
-  //   //   const { title } = data.site.siteMetadata;
-  console.log("=======", data);
   const [state, setState] = useState({
     logo: data.userProfile.pictures[0],
   });

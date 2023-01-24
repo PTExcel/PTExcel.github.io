@@ -13,20 +13,9 @@ const config: GatsbyConfig = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sass",
     {
-      resolve: "gatsby-plugin-favicons",
+      resolve: "gatsby-plugin-manifest",
       options: {
-        logo: "./src/favicon.ico",
-        appName: "PT Excel",
-        background: "#fff",
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          yandex: false,
-          windows: false,
-        },
+        icon: "src/assets/images/favicon.png",
       },
     },
   ],
