@@ -23,7 +23,7 @@ const Work = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
 export default Work;
 
 export function Head(props: HeadProps<DataProps>) {
-  return <title>`{props.data.site.siteMetadata.title} - Work`</title>;
+  return <title>{props.data.site.siteMetadata.title} - Work</title>;
 }
 
 export const query = graphql`

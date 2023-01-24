@@ -49,7 +49,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
 export default IndexPage;
 
 export function Head(props: HeadProps<DataProps>) {
-  return <title>`{props.data.site.siteMetadata.title} - Home`</title>;
+  return <title>{props.data.site.siteMetadata.title} - Home</title>;
 }
 
 export const query = graphql`
