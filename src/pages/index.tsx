@@ -45,7 +45,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
             />
           </strong>
         </p>
-        <p className="intro-content-buttons">
+        <div className="intro-content-buttons">
           <div>
             <Link to="/work" className="btn-primary">
               View My Work
@@ -62,7 +62,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
               Download my CV
             </a>
           </div>
-        </p>
+        </div>
       </main>
     </Layout>
   );
