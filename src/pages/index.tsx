@@ -1,50 +1,51 @@
-import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
-import Layout from '../components/layout'
+import * as React from "react";
+import { graphql, HeadProps, PageProps } from "gatsby";
+import Layout from "../components/layout";
+import { DataProps } from "../constants";
 
 const pageStyles = {
   color: "#232129",
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
+};
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 320,
-}
+};
 const headingAccentStyles = {
   color: "#663399",
-}
+};
 const paragraphStyles = {
   marginBottom: 48,
-}
+};
 const codeStyles = {
   color: "#8A6534",
   padding: 4,
   backgroundColor: "#FFF4DB",
   fontSize: "1.25rem",
   borderRadius: 4,
-}
+};
 const listStyles = {
   marginBottom: 96,
   paddingLeft: 0,
-}
+};
 const doclistStyles = {
   paddingLeft: 0,
-}
+};
 const listItemStyles = {
   fontWeight: 300,
   fontSize: 24,
   maxWidth: 560,
   marginBottom: 30,
-}
+};
 
 const linkStyle = {
   color: "#8954A8",
   fontWeight: "bold",
   fontSize: 16,
   verticalAlign: "5%",
-}
+};
 
 const docLinkStyle = {
   ...linkStyle,
@@ -52,7 +53,7 @@ const docLinkStyle = {
   display: `inline-block`,
   marginBottom: 24,
   marginRight: 12,
-}
+};
 
 const descriptionStyle = {
   color: "#232129",
@@ -60,7 +61,7 @@ const descriptionStyle = {
   marginTop: 10,
   marginBottom: 0,
   lineHeight: 1.25,
-}
+};
 
 const docLinks = [
   {
@@ -72,8 +73,8 @@ const docLinks = [
     text: "GraphQL Typegen Documentation",
     url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
     color: "#8954A8",
-  }
-]
+  },
+];
 
 const badgeStyle = {
   color: "#fff",
@@ -89,7 +90,7 @@ const badgeStyle = {
   top: -2,
   marginLeft: 10,
   lineHeight: 1,
-}
+};
 
 const links = [
   {
@@ -135,7 +136,7 @@ const links = [
       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
     color: "#663399",
   },
-]
+];
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -144,14 +145,16 @@ const IndexPage: React.FC<PageProps> = () => {
         <h1 style={headingStyles}>
           Congratulations
           <br />
-          <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
+          <span style={headingAccentStyles}>
+            — you just made a Gatsby site! 🎉🎉🎉
+          </span>
         </h1>
         <p style={paragraphStyles}>
-          Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
-          update in real-time. 😎
+          Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this
+          page update in real-time. 😎
         </p>
         <ul style={doclistStyles}>
-          {docLinks.map(doc => (
+          {docLinks.map((doc) => (
             <li key={doc.url} style={docLinkStyle}>
               <a
                 style={linkStyle}
@@ -163,7 +166,7 @@ const IndexPage: React.FC<PageProps> = () => {
           ))}
         </ul>
         <ul style={listStyles}>
-          {links.map(link => (
+          {links.map((link) => (
             <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
               <span>
                 <a
@@ -188,10 +191,21 @@ const IndexPage: React.FC<PageProps> = () => {
         />
       </main>
     </Layout>
+  );
+};
 
-  )
+export default IndexPage;
+
+export function Head(props: HeadProps<DataProps>) {
+  return <title>`{props.data.site.siteMetadata.title} - Home`</title>;
 }
 
-export default IndexPage
-
-export const Head: HeadFC = () => <title>Home Page</title>
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

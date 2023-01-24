@@ -1,8 +1,9 @@
-import { graphql, PageProps } from "gatsby";
+import { graphql, PageProps, HeadProps } from "gatsby";
 import * as React from "react";
-import Layout from '../components/layout';
+import Layout from "../components/layout";
+import { DataProps } from "../constants";
 
-const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
+const Work = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
   return (
     <Layout>
       <main>
@@ -16,11 +17,14 @@ const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
         </pre>
       </main>
     </Layout>
-
   );
 };
 
-export default TypegenPage;
+export default Work;
+
+export function Head(props: HeadProps<DataProps>) {
+  return <title>`{props.data.site.siteMetadata.title} - Work`</title>;
+}
 
 export const query = graphql`
   query TypegenPage {
