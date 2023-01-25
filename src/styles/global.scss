@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #fff;
 }
 
 body {
@@ -23,11 +24,10 @@ li {
   justify-content: space-between;
   padding: 20px 20px 8px 20px;
   background-color: teal;
-  color: #fff;
 }
 
 .nav-links a {
-  color: #fff;
+  // color: #fff;
 }
 
 /* LOGO */
@@ -42,21 +42,16 @@ li {
 }
 
 /* NAVBAR MENU */
-
 .menu {
   display: flex;
-
   gap: 1em;
-
   font-size: 18px;
 }
 
 .menu li a.active,
 a:hover {
   background-color: #4c9e9e;
-
   border-radius: 5px;
-
   transition: 0.3s ease;
 }
 
@@ -76,9 +71,7 @@ input[type="checkbox"] {
 
 .hamburger {
   display: none;
-
   font-size: 24px;
-
   user-select: none;
 }
 
@@ -98,9 +91,7 @@ input[type="checkbox"] {
 
   .menu li:hover {
     display: inline-block;
-
     background-color: #4c9e9e;
-
     transition: 0.3s ease;
   }
 
@@ -115,23 +106,10 @@ input[type="checkbox"] {
   .hamburger {
     display: block;
   }
-
-  .dropdown {
-    left: 50%;
-
-    top: 30px;
-
-    transform: translateX(35%);
-  }
-
-  .dropdown li:hover {
-    background-color: #4c9e9e;
-  }
 }
 
 .intro {
   position: relative;
-  color: #fff;
   text-align: center;
 }
 
@@ -144,7 +122,7 @@ input[type="checkbox"] {
   display: flex;
   justify-content: space-evenly;
   margin-top: 50px;
-   a {
+  a {
     margin: 12px;
   }
 }
@@ -161,7 +139,6 @@ input[type="checkbox"] {
 }
 
 .intro .intro-title {
-  color: #fff;
   font-weight: 600;
   font-size: 3rem;
   margin-bottom: 80px;
@@ -170,8 +147,6 @@ input[type="checkbox"] {
 .intro .intro-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
-  color: white;
-
 }
 
 .intro-single {
@@ -217,7 +192,6 @@ input[type="checkbox"] {
 .btn-primary {
   background-color: teal;
   border-radius: 5px;
-  color: #fff;
   border-radius: 0.25rem;
   display: inline-block;
   font-size: 1rem;
@@ -229,4 +203,165 @@ input[type="checkbox"] {
   -webkit-user-select: none;
   user-select: none;
   vertical-align: middle;
+}
+
+$desktop: 1024px;
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+		}
+	}
+}
+.portfolio {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  .title-box {
+    text-align: center;
+    padding: 24px;
+    strong {
+      color: teal;
+      font-size: 24px;
+    }
+  }
+  .title-a {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+ 
+  }
+ 
+  &-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	// margin: 20px 0 80px;
+}
+
+.card {
+	width: 300px;
+	margin: 10px;
+	background-color: white;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+	&:hover {
+		.card__caption {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.card__image {
+			transform: translateY(-10px);
+		}
+
+		.card__thumb {
+			&::after {
+				top: 0;
+			}
+		}
+
+		.card__snippet {
+			margin: 20px 0;
+		}
+	}
+
+	&__thumb {
+		position: relative;
+		max-height: 400px;
+		overflow: hidden;
+		
+		@include breakpoint(desktop) {
+			max-height: 500px;
+		}
+
+		&::after {
+			position: absolute;
+			top: 0;
+			display: block;
+			content: '';
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, .5) 40%, rgba(255, 255 ,255 , 0) 100%);
+			transition: .3s;
+			
+			@include breakpoint(desktop) {
+				top: calc(100% - 140px);
+			}
+		}
+	}
+	
+	&__image {
+		transition: .5s ease-in-out;
+    height: 510px;
+	}
+	
+	&__caption {
+		position: absolute;
+		top: 50%;
+		z-index: 1;
+		padding: 20px;
+		color: white;
+		transform: translateY(-50%);
+		text-align: center;
+		transition: .3s;
+    background: grey;
+
+		@include breakpoint(desktop) {
+			top: calc(100% - 110px);
+			transform: unset;
+		}
+	}
+
+	&__title {
+		display: -webkit-box;
+		max-height: 85px;
+    overflow: hidden;
+		font-family: 'Playfair Display', serif;
+		font-size: 23px;
+		line-height: 28px;
+		text-shadow: 0px 1px 5px black;
+		text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
+
+  &__subTitle {
+	  font-size: 16px;
+	}
+
+	&__snippet {
+		display: -webkit-box;
+		max-height: 150px;
+		margin: 20px 0;
+		overflow: hidden;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		text-overflow: ellipsis;
+		transition: .5s ease-in-out;
+    -webkit-line-clamp: 5;
+		-webkit-box-orient: vertical;
+		
+		@include breakpoint(desktop) {
+			margin: 60px 0;
+		}
+	}
+
+	&__button {
+		display: inline-block;
+		padding: 10px 20px;
+		color: white;
+		border: 1px solid white;
+		font-family: 'Roboto', sans-serif;
+		font-size: 12px;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: .3s;
+
+		&:hover {
+			color: black;
+			background-color: white;
+		}
+	}
+}
 }

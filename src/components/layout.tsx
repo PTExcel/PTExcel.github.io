@@ -5,12 +5,14 @@ import "../styles/stars.scss";
 
 export default function Layout({ children }) {
   return (
-    <div className="container background">
-      <div id="stars" />
-      <div id="stars2" />
-      <div id="stars3" />
+    <div className="container">
       <NavBar />
-      <div className="content">{children}</div>
+      <div className="content background">
+        <div id="stars" />
+        <div id="stars2" />
+        <div id="stars3" />
+        {children}
+      </div>
     </div>
   );
 }

@@ -1,20 +1,68 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
-import * as React from "react";
+import _ from "lodash";
 import Layout from "../components/layout";
 import { DataProps } from "../constants";
+import React, { useEffect, useState } from "react";
 
-const Work = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
+const Work = ({ data }: PageProps<Queries.Query>) => {
+  const [state, setState] = useState({
+    portfolio: [],
+    html: "",
+  });
+
+  useEffect(() => {
+    setState((previousState: any) => {
+      return {
+        ...previousState,
+        portfolio: _.orderBy(
+          data.allPortfolio.nodes,
+          ["displayOrder"],
+          ["desc"]
+        ),
+        html: data.userProfile?.portfolioSummary?.html,
+      };
+    });
+  }, []);
+
   return (
     <Layout>
-      <main>
-        <p>Site title: {data.site?.siteMetadata?.title}</p>
-        <p>Site title: {JSON.stringify(data.userProfile)}</p>
-        <p>Site title: {JSON.stringify(data.allPortfolio)}</p>
-        <hr />
-        <p>Query Result:</p>
-        <pre>
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
+      <main className="portfolio">
+        <div>
+          <div>
+            <div>
+              <div className="title-box">
+                <h3 className="title-a">Portfolio</h3>
+                <div dangerouslySetInnerHTML={{ __html: state.html }} />
+                <div className="line-mf"></div>
+              </div>
+            </div>
+          </div>
+          <div className="portfolio-container">
+            {state.portfolio.map((item: any) => {
+              return (
+                <div className="card" key={item.title}>
+                  <figure className="card__thumb">
+                    <img
+                      src={item.image[0].url}
+                      alt="Picture by Kyle Cottrell"
+                      className="card__image"
+                    />
+                    <figcaption className="card__caption">
+                      <h2 className="card__title">
+                        {item.title}
+                        <div className="card__subTitle">{item.subTitle}</div>
+                      </h2>
+                      <p className="card__snippet">{item.technologies}</p>
+                      {/* <a href="" className="card__button">
+                        Read more
+                      </a> */}
+                    </figcaption>
+                  </figure>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </main>
     </Layout>
   );
@@ -23,43 +71,19 @@ const Work = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
 export default Work;
 
 export function Head(props: HeadProps<DataProps>) {
-  return <title>{props.data.site.siteMetadata.title} - Work</title>;
+  return <title>{props.data.site.siteMetadata.title} - Porfolios</title>;
 }
 
 export const query = graphql`
-  query TypegenPage {
+  {
     site {
       siteMetadata {
         title
       }
     }
     userProfile {
-      firstName
-      lastName
-      features
-      skillGraph {
-        skills {
-          id
-          value
-          content
-          percentage
-        }
-      }
-      backgroundImage {
-        url
-      }
-      pictures {
-        url
-      }
-      aboutMe {
-        html
-      }
       portfolioSummary {
         html
-      }
-      cv {
-        fileName
-        url
       }
     }
     allPortfolio {
