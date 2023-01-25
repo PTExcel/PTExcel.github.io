@@ -107,7 +107,8 @@ input[type="checkbox"] {
     display: block;
   }
 
-  .about {
+  .about,
+  .contact {
     .box-shadow-full {
       flex-direction: column;
     }
@@ -115,6 +116,7 @@ input[type="checkbox"] {
 }
 
 .intro {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   position: relative;
   text-align: center;
 }
@@ -406,6 +408,7 @@ $desktop: 1024px;
 ABOUT
 */
 .about {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   &-container {
     color: white;
   }
@@ -432,6 +435,7 @@ ABOUT
 }
 
 .contact {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   &-container {
     margin-top: 4rem;
   }
