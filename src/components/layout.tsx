@@ -7,7 +7,9 @@ import "../styles/stars.scss";
 export default function Layout({ children }) {
   const TRACKING_ID = "UA-6559885-2"; // OUR_TRACKING_ID
   ReactGA.initialize(TRACKING_ID);
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  if (typeof window !== "undefined") {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
 
   return (
     <div className="container">
