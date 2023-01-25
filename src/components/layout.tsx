@@ -1,9 +1,14 @@
 import React from "react";
+import ReactGA from "react-ga";
 import NavBar from "./navBar";
 import "../styles/global.scss";
 import "../styles/stars.scss";
 
 export default function Layout({ children }) {
+  const TRACKING_ID = "UA-6559885-2"; // OUR_TRACKING_ID
+  ReactGA.initialize(TRACKING_ID);
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <div className="container">
       <NavBar />
