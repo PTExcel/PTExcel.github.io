@@ -3,6 +3,9 @@ import * as React from "react";
 import { useCallback } from "react";
 import ReactGA from "react-ga";
 import Layout from "../components/layout";
+import documentIcon from "../assets/images/document.png";
+import githubIcon from "../assets/images/github.png";
+import linkedinIcon from "../assets/images/linkedin.png";
 
 const Contact = ({ data }: PageProps<Queries.Query>) => {
   const {
@@ -115,47 +118,38 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
                 </p>
               </div>
               <div className="socials">
-                <ul>
-                  <li>
-                    <a
-                      target="_blank"
-                      role="button"
-                      href={url}
-                      download="BrandonTruongCV"
-                      title={`BrandonTruong's CV`}
-                      onClick={handleOnCVDownload}
-                      rel="noreferrer"
-                    >
-                      <span className="ico-circle">
-                        <i className="ion-document-text"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/brandontruong"
-                      target="_blank"
-                      title={`BrandonTruong's Github`}
-                      rel="noopener noreferrer"
-                    >
-                      <span className="ico-circle">
-                        <i className="ion-social-github"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/brandontruong/"
-                      target="_blank"
-                      title={`BrandonTruong's LinkedIn`}
-                      rel="noopener noreferrer"
-                    >
-                      <span className="ico-circle">
-                        <i className="ion-social-linkedin"></i>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
+                <a
+                  target="_blank"
+                  role="button"
+                  href={url}
+                  download="BrandonTruongCV"
+                  title={`BrandonTruong's CV`}
+                  onClick={handleOnCVDownload}
+                  rel="noreferrer"
+                >
+                  <img src={documentIcon} height="32" width={32} alt="CV" />
+                </a>
+                <a
+                  href="https://github.com/brandontruong"
+                  target="_blank"
+                  title={`BrandonTruong's Github`}
+                  rel="noopener noreferrer"
+                >
+                  <img src={githubIcon} height="32" width={32} alt="Github" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/brandontruong/"
+                  target="_blank"
+                  title={`BrandonTruong's LinkedIn`}
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={linkedinIcon}
+                    height="32"
+                    width={32}
+                    alt="LinkedIn"
+                  />
+                </a>
               </div>
             </div>
           </div>
