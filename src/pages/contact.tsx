@@ -1,7 +1,6 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
 import * as React from "react";
 import { useCallback } from "react";
-import ReactGA from "react-ga";
 import Layout from "../components/layout";
 import documentIcon from "../assets/images/document.png";
 import githubIcon from "../assets/images/github.png";
@@ -14,11 +13,14 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
   } = data.userProfile as any;
 
   const handleOnCVDownload = useCallback(() => {
-    ReactGA.event({
-      category: "Contact",
-      action: "Click",
-      label: "Download CV",
-    });
+    if (typeof window !== "undefined" && window.gtag) {
+      console.log("I am google tracking");
+      window.gtag("event", "click", {
+        category: "Contact",
+        action: "Click",
+        label: "Download CV",
+      });
+    }
   }, []);
 
   return (

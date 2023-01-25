@@ -1,5 +1,4 @@
 import * as React from "react";
-import ReactGA from "react-ga";
 import { graphql, HeadProps, Link, PageProps } from "gatsby";
 import Typed from "react-typed";
 import Layout from "../components/layout";
@@ -20,11 +19,14 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
   } = data.userProfile as any;
 
   const handleOnCVDownload = React.useCallback(() => {
-    ReactGA.event({
-      category: "Intro",
-      action: "Click",
-      label: "Download CV",
-    });
+    if (typeof window !== "undefined" && window.gtag) {
+      console.log("I am google tracking");
+      window.gtag("event", "click", {
+        category: "Contact",
+        action: "Click",
+        label: "Download CV",
+      });
+    }
   }, []);
 
   return (

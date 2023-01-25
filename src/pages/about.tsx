@@ -4,7 +4,6 @@ import { DataProps } from "../constants";
 import Layout from "../components/layout";
 
 const About = ({ data }: PageProps<Queries.Query>) => {
-  console.log(data);
   const {
     aboutMe: { html },
     skillGraph,
