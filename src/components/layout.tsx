@@ -13,6 +13,15 @@ export default function Layout({ children }) {
         <div id="stars3" />
         {children}
       </div>
+      {/* <footer>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="copyright-box"></div>
+            </div>
+          </div>
+        </div>
+      </footer> */}
     </div>
   );
 }
