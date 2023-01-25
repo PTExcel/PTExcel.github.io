@@ -100,6 +100,7 @@ input[type="checkbox"] {
 
   input[type="checkbox"]:checked ~ .menu {
     display: block;
+    z-index: 10;
   }
 
   .hamburger {
