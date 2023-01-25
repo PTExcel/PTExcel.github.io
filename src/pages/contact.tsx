@@ -1,6 +1,6 @@
-import { graphql, PageProps } from "gatsby";
+import { graphql, PageProps, HeadProps } from "gatsby";
 import * as React from "react";
-import Layout from '../components/layout';
+import Layout from "../components/layout";
 
 const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
   return (
@@ -16,7 +16,6 @@ const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
         </pre>
       </main>
     </Layout>
-
   );
 };
 

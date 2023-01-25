@@ -1,72 +1,76 @@
-import { graphql, PageProps } from "gatsby";
+import { graphql, PageProps, HeadProps } from "gatsby";
 import * as React from "react";
-import Layout from '../components/layout';
+import { DataProps } from "../constants";
+import Layout from "../components/layout";
 
-const TypegenPage = ({ data }: PageProps<Queries.TypegenPageQuery>) => {
+const About = ({ data }: PageProps<Queries.Query>) => {
+  console.log(data);
+  const {
+    aboutMe: { html },
+    skillGraph,
+  } = data.userProfile as any;
+
   return (
     <Layout>
-      <main>
-        <p>Site title: {data.site?.siteMetadata?.title}</p>
-        <p>Site title: {JSON.stringify(data.userProfile)}</p>
-        <p>Site title: {JSON.stringify(data.allPortfolio)}</p>
-        <hr />
-        <p>Query Result:</p>
-        <pre>
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
+      <main className="about">
+        <div className="about-container">
+          <div className="box-shadow-full">
+            <div className="skill-mf">
+              {skillGraph.skills.map((skill: any) => {
+                return (
+                  <React.Fragment key={skill.id}>
+                    <span>{skill.content}</span>{" "}
+                    <span className="pull-right">{skill.percentage}</span>
+                    <div className="progress">
+                      <div
+                        className="progress-bar"
+                        role="progressbar"
+                        style={{ width: skill.percentage }}
+                        aria-valuenow={skill.value}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            <div className="about-me">
+              <div className="title-box-2">
+                <h5 className="title-left">About Me</h5>
+              </div>
+              <div dangerouslySetInnerHTML={{ __html: html }} />
+            </div>
+          </div>
+        </div>
       </main>
     </Layout>
-
   );
 };
 
-export default TypegenPage;
+export default About;
+
+export function Head(props: HeadProps<DataProps>) {
+  return <title>{props.data.site.siteMetadata.title} - About</title>;
+}
 
 export const query = graphql`
-  query TypegenPage {
+  {
     site {
       siteMetadata {
         title
       }
     }
     userProfile {
-      firstName
-      lastName
-      features
+      aboutMe {
+        html
+      }
       skillGraph {
         skills {
           id
           value
           content
           percentage
-        }
-      }
-      backgroundImage {
-        url
-      }
-      pictures {
-        url
-      }
-      aboutMe {
-        html
-      }
-      portfolioSummary {
-        html
-      }
-      cv {
-        fileName
-        url
-      }
-    }
-    allPortfolio {
-      nodes {
-        id
-        title
-        subTitle
-        technologies
-        displayOrder
-        image {
-          url
         }
       }
     }

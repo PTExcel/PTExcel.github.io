@@ -85,26 +85,6 @@ export const query = graphql`
       firstName
       lastName
       features
-      skillGraph {
-        skills {
-          id
-          value
-          content
-          percentage
-        }
-      }
-      backgroundImage {
-        url
-      }
-      pictures {
-        url
-      }
-      aboutMe {
-        html
-      }
-      portfolioSummary {
-        html
-      }
       cv {
         fileName
         url
