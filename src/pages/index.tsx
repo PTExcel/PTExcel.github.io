@@ -1,6 +1,7 @@
 import * as React from "react";
 import { graphql, HeadProps, Link, PageProps } from "gatsby";
 import Typed from "react-typed";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 import Layout from "../components/layout";
 import { DataProps } from "../constants";
 
@@ -52,7 +53,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
             <Link to="/work" className="btn-primary">
               View My Work
             </Link>
-            <a
+            <OutboundLink
               className="btn-primary"
               target="_blank"
               role="button"
@@ -62,7 +63,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
               onClick={handleOnCVDownload}
             >
               Download my CV
-            </a>
+            </OutboundLink>
           </div>
         </div>
       </main>
