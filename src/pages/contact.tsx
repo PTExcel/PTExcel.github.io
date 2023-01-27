@@ -126,31 +126,41 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
                   role="button"
                   href={url}
                   download="BrandonTruongCV"
-                  title={`BrandonTruong's CV`}
+                  title={`Brandon Truong's CV`}
                   onClick={handleOnCVDownload}
                   rel="noreferrer"
                 >
-                  <img src={documentIcon} height="32" width={32} alt="CV" />
+                  <img
+                    src={documentIcon}
+                    height="32"
+                    width={32}
+                    alt="Brandon Truong's CV"
+                  />
                 </a>
                 <a
                   href="https://github.com/brandontruong"
                   target="_blank"
-                  title={`BrandonTruong's Github`}
+                  title={`Brandon Truong's Github`}
                   rel="noopener noreferrer"
                 >
-                  <img src={githubIcon} height="32" width={32} alt="Github" />
+                  <img
+                    src={githubIcon}
+                    height="32"
+                    width={32}
+                    alt="Brandon Truong's Github"
+                  />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/brandontruong/"
                   target="_blank"
-                  title={`BrandonTruong's LinkedIn`}
+                  title={`Brandon Truong's LinkedIn`}
                   rel="noopener noreferrer"
                 >
                   <img
                     src={linkedinIcon}
                     height="32"
                     width={32}
-                    alt="LinkedIn"
+                    alt="Brandon Truong's LinkedIn"
                   />
                 </a>
               </div>
