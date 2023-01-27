@@ -4,13 +4,6 @@ import Typed from "react-typed";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
-import { DataProps } from "../constants";
-
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
 
 const IndexPage = ({ data }: PageProps<Queries.Query>) => {
   const {
@@ -22,7 +15,6 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
 
   const handleOnCVDownload = React.useCallback(() => {
     if (typeof window !== "undefined" && window.gtag) {
-      console.log("I am google tracking");
       window.gtag("event", "click", {
         category: "Contact",
         action: "Click",
@@ -33,7 +25,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
 
   return (
     <Layout>
-      <main className="intro" style={pageStyles}>
+      <main className="intro">
         <h1 className="intro-title mb-4">
           Hello, My name is {`${firstName} ${lastName}`}
         </h1>
