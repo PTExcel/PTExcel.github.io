@@ -1,7 +1,8 @@
 import * as React from "react";
-import { graphql, HeadProps, Link, PageProps } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
 import Typed from "react-typed";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
+import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 import { DataProps } from "../constants";
 
@@ -73,9 +74,7 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
 
 export default IndexPage;
 
-export function Head(props: HeadProps<DataProps>) {
-  return <title>{props.data.site.siteMetadata.title} - Home</title>;
-}
+export const Head = () => <SEO title="Home" />;
 
 export const query = graphql`
   {

@@ -4,6 +4,9 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `PT Excel`,
     siteUrl: `https://ptexcel.github.io/`,
+    description: `PT Excel website for Brandon Truong`,
+    twitterUsername: `@brandontruong`,
+    image: `/gatsby-icon.png`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

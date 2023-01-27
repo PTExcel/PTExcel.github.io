@@ -1,6 +1,7 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
 import * as React from "react";
 import { useCallback } from "react";
+import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 import documentIcon from "../assets/images/document.png";
 import githubIcon from "../assets/images/github.png";
@@ -162,6 +163,8 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
 };
 
 export default Contact;
+
+export const Head = () => <SEO title="Contact" />;
 
 export const query = graphql`
   {

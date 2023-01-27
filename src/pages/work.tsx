@@ -1,7 +1,7 @@
-import { graphql, PageProps, HeadProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import _ from "lodash";
 import Layout from "../components/layout";
-import { DataProps } from "../constants";
+import { SEO } from "../components/seo";
 import React, { useEffect, useState } from "react";
 
 const Work = ({ data }: PageProps<Queries.Query>) => {
@@ -70,9 +70,7 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
 
 export default Work;
 
-export function Head(props: HeadProps<DataProps>) {
-  return <title>{props.data.site.siteMetadata.title} - Porfolios</title>;
-}
+export const Head = () => <SEO title="Porfolios" />;
 
 export const query = graphql`
   {
