@@ -2,6 +2,8 @@ import * as React from "react";
 import { graphql, Link, PageProps } from "gatsby";
 import Typed from "react-typed";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
+import Lottie from 'react-lottie-player';
+import lottieJson from '../assets/porfolio.json';
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 
@@ -59,6 +61,12 @@ const IndexPage = ({ data }: PageProps<Queries.Query>) => {
             </OutboundLink>
           </div>
         </div>
+        <Lottie
+              loop
+              animationData={lottieJson}
+              play
+              style={{ width: 'auto', height: 250 }}
+            />
       </main>
     </Layout>
   );
