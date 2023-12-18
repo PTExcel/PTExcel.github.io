@@ -1,7 +1,9 @@
-import { graphql, PageProps } from "gatsby";
-import * as React from "react";
+import { graphql, PageProps } from 'gatsby';
+import * as React from 'react';
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
+import Lottie from 'react-lottie-player';
+import lottieJson from '../assets/about-me.json';
 
 const About = ({ data }: PageProps<Queries.Query>) => {
   const {
@@ -39,6 +41,12 @@ const About = ({ data }: PageProps<Queries.Query>) => {
                 <h5 className="title-left">About Me</h5>
               </div>
               <div dangerouslySetInnerHTML={{ __html: html }} />
+              <Lottie
+                loop
+                animationData={lottieJson}
+                play
+                style={{ width: 'auto', float: 'left', height: 200 }}
+              />
             </div>
           </div>
         </div>

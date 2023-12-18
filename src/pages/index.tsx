@@ -3,7 +3,7 @@ import { graphql, Link, PageProps } from "gatsby";
 import Typed from "react-typed";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import Lottie from 'react-lottie-player';
-import lottieJson from '../assets/porfolio.json';
+import lottieJson from '../assets/home.json';
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 

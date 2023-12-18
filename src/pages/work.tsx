@@ -1,8 +1,10 @@
-import { graphql, PageProps } from "gatsby";
-import _ from "lodash";
-import Layout from "../components/layout";
-import { SEO } from "../components/seo";
-import React, { useEffect, useState } from "react";
+import { graphql, PageProps } from 'gatsby';
+import _ from 'lodash';
+import Layout from '../components/layout';
+import { SEO } from '../components/seo';
+import React, { useEffect, useState } from 'react';
+import Lottie from 'react-lottie-player';
+import lottieJson from '../assets/porfolio.json';
 
 const Work = ({ data }: PageProps<Queries.Query>) => {
   const [state, setState] = useState({
@@ -29,12 +31,18 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
       <main className="portfolio">
         <div>
           <div>
-            <div>
+            <div className="header-box">
               <div className="title-box">
                 <h3 className="title-a">Portfolio</h3>
                 <div dangerouslySetInnerHTML={{ __html: state.html }} />
                 <div className="line-mf"></div>
               </div>
+              <Lottie
+                loop
+                animationData={lottieJson}
+                play
+                style={{ width: 'auto', float: 'left', height: 200 }}
+              />
             </div>
           </div>
           <div className="portfolio-container">

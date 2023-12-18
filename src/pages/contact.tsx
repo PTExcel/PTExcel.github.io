@@ -3,6 +3,8 @@ import * as React from "react";
 import { useCallback } from "react";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
+import Lottie from 'react-lottie-player';
+import lottieJson from '../assets/contact.json';
 import documentIcon from "../assets/images/document.png";
 import githubIcon from "../assets/images/github.png";
 import linkedinIcon from "../assets/images/linkedin.png";
@@ -164,6 +166,12 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
                   />
                 </a>
               </div>
+              <Lottie
+                loop
+                animationData={lottieJson}
+                play
+                style={{ width: 'auto', float: 'left', height: 200 }}
+              />
             </div>
           </div>
         </div>

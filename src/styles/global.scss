@@ -223,6 +223,11 @@ $desktop: 1024px;
 }
 .portfolio {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  .header-box {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+  }
   .title-box {
     text-align: center;
     padding: 24px;
@@ -502,7 +507,7 @@ ABOUT
     }
   }
   .socials {
-    margin-top: 24px;
+    margin: 24px 0;
     a {
       padding-right: 12px;
     }
