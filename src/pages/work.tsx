@@ -5,12 +5,33 @@ import { SEO } from '../components/seo';
 import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie-player';
 import lottieJson from '../assets/porfolio.json';
+import Rodal from 'rodal';
+
+// include styles
+import 'rodal/lib/rodal.css';
+
+interface ImageData {
+  url: string;
+}
+interface PorfolioData {
+  title: string;
+  subTitle: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  technologies: string;
+  image: ImageData[];
+  details: {html: any;};
+}
 
 const Work = ({ data }: PageProps<Queries.Query>) => {
   const [state, setState] = useState({
     portfolio: [],
     html: "",
   });
+
+  const [showDialog, setShowDialog] = useState(false);
+  const [selectedPorfolio, setSelectedPorfolio] = useState<PorfolioData>();
 
   useEffect(() => {
     setState((previousState: any) => {
@@ -25,6 +46,19 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
       };
     });
   }, []);
+
+  const handleReadMore = (porfolio: PorfolioData) => () => {
+    console.log('=======porfolio=====', porfolio)
+    setShowDialog(true);
+    setSelectedPorfolio(porfolio);
+  };
+  const handleCloseDialog = () => {
+    setShowDialog(false);
+  }
+
+  const formatDateString = (date: string) => {
+    return new Date(date).toLocaleDateString('en-us', { year: 'numeric', month: 'long' })
+  }
 
   return (
     <Layout>
@@ -52,7 +86,7 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
                   <figure className="card__thumb">
                     <img
                       src={item.image[0].url}
-                      alt="Picture by Kyle Cottrell"
+                      alt={`${item.title} - ${item.position}`}
                       className="card__image"
                     />
                     <figcaption className="card__caption">
@@ -61,15 +95,34 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
                         <div className="card__subTitle">{item.subTitle}</div>
                       </h2>
                       <p className="card__snippet">{item.technologies}</p>
-                      {/* <a href="" className="card__button">
+
+                      <a onClick={handleReadMore(item)} className="card__button">
                         Read more
-                      </a> */}
+                      </a>
                     </figcaption>
                   </figure>
                 </div>
               );
             })}
           </div>
+
+        <Rodal visible={showDialog} onClose={handleCloseDialog}>
+          <div className='porfolio-modal'>
+          {!!selectedPorfolio &&
+          <>
+            <h1>{`${selectedPorfolio.subTitle}`}</h1>
+            <h4>{`${selectedPorfolio.title} - ${selectedPorfolio.position}`}</h4>
+            <div>{`From ${formatDateString(selectedPorfolio.startDate)}`}{selectedPorfolio.endDate ? ` to ${formatDateString(selectedPorfolio.endDate)}`: ' onwards'}</div>
+            <div className='porfolio-modal__details' dangerouslySetInnerHTML={{ __html: selectedPorfolio.details?.html }} />
+            <div>{`Technologies: ${selectedPorfolio.technologies.replaceAll(' ', ', ')}`}</div>
+          </>
+
+          }
+
+
+          </div>
+        </Rodal>
+
         </div>
       </main>
     </Layout>
@@ -97,10 +150,16 @@ export const query = graphql`
         id
         title
         subTitle
+        position
         technologies
         displayOrder
         image {
           url
+        }
+        startDate
+        endDate
+        details {
+          html
         }
       }
     }

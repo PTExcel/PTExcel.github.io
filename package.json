@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.7",
+    "caniuse-lite": "^1.0.30001570",
     "gatsby": "^5.4.2",
     "gatsby-plugin-google-gtag": "^5.5.0",
     "gatsby-plugin-google-tagmanager": "^5.7.0",
@@ -30,8 +31,9 @@
     "lodash": "4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-typed": "^1.2.0",
     "react-lottie-player": "^1.5.4",
+    "react-typed": "^1.2.0",
+    "rodal": "^2.1.0",
     "sass": "^1.57.1",
     "styled-components": "^5.3.6"
   },

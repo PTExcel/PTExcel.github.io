@@ -55,13 +55,19 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async ({
           portfolios {
             title
             subTitle
+            position
             technologies
             displayOrder
             image {
               url
             }
+            startDate
+            endDate
+            details {
+              html
+            }
           }
-            
+
           userProfile(where: {id: "cl8l9ozfq1tx70c2tvryy2acu"}) {
             firstName
             lastName

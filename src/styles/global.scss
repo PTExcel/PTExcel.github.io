@@ -24,10 +24,11 @@ li {
   justify-content: space-between;
   padding: 20px 20px 8px 20px;
   background-color: teal;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 2;
+  right: 0;
+  left: 0;
 }
 
 .nav-links a {
@@ -197,9 +198,29 @@ input[type="checkbox"] {
   flex-flow: column;
   .content {
     flex-grow: 1;
+    padding-top: 130px;
+    .rodal-dialog {
+      width: 50% !important;
+      height: 50% !important;
+
+    }
   }
 }
 
+.porfolio-modal {
+  * {
+    color: teal;
+  }
+  &__details {
+    ul {
+      padding: 12px 24px;
+      li {
+        display: list-item;
+        list-style-type: disc;
+      }
+    }
+  }
+}
 .btn-primary {
   background-color: teal;
   border-radius: 5px;
