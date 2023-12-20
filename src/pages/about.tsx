@@ -17,21 +17,13 @@ const About = ({ data }: PageProps<Queries.Query>) => {
         <div className="about-container">
           <div className="box-shadow-full">
             <div className="skill-mf">
-              {skillGraph.skills.map((skill: any) => {
+            {skillGraph.skills.map((skill: any) => {
                 return (
                   <React.Fragment key={skill.id}>
-                    <span>{skill.content}</span>{" "}
-                    <span className="pull-right">{skill.percentage}</span>
+                    <span>{`${skill.content} ${skill.percentage}`}</span>
                     <div className="progress">
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: skill.percentage }}
-                        aria-valuenow={skill.value}
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
+                      <span style={{ width: skill.percentage }}><span className="progress-bar"></span></span>
+                  </div>
                   </React.Fragment>
                 );
               })}
@@ -39,14 +31,14 @@ const About = ({ data }: PageProps<Queries.Query>) => {
             <div className="about-me">
               <div className="title-box-2">
                 <h1 className="title-left">About Me</h1>
+                <Lottie
+                  loop
+                  animationData={lottieJson}
+                  play
+                  style={{ width: 'auto', position: 'absolute', height: 150, right: 0, top: -80 }}
+                />
               </div>
               <div dangerouslySetInnerHTML={{ __html: html }} />
-              <Lottie
-                loop
-                animationData={lottieJson}
-                play
-                style={{ width: 'auto', float: 'left', height: 200 }}
-              />
             </div>
           </div>
         </div>

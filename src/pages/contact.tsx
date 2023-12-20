@@ -29,7 +29,6 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
   return (
     <Layout>
       <main className="contact">
-        <div className="contact-container">
           <div className="box-shadow-full">
             <div className="col-md-6">
               <div className="title-box-2">
@@ -174,7 +173,6 @@ const Contact = ({ data }: PageProps<Queries.Query>) => {
               />
             </div>
           </div>
-        </div>
       </main>
     </Layout>
   );

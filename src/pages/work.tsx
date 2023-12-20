@@ -48,7 +48,6 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
   }, []);
 
   const handleReadMore = (porfolio: PorfolioData) => () => {
-    console.log('=======porfolio=====', porfolio)
     setShowDialog(true);
     setSelectedPorfolio(porfolio);
   };
@@ -62,21 +61,23 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
 
   return (
     <Layout>
-      <main className="portfolio">
+      <main className="portfolio box-shadow-full">
         <div>
           <div>
             <div className="header-box">
               <div className="title-box">
-                <h1 className="title-a">Portfolio</h1>
+                <h1 className="title-a">
+                  <span>Portfolio</span>
+                  <Lottie
+                    loop
+                    animationData={lottieJson}
+                    play
+                    style={{ width: 'auto', float: 'right', height: 200 }}
+                  />
+                </h1>
                 <div dangerouslySetInnerHTML={{ __html: state.html }} />
-                <div className="line-mf"></div>
               </div>
-              <Lottie
-                loop
-                animationData={lottieJson}
-                play
-                style={{ width: 'auto', float: 'left', height: 200 }}
-              />
+
             </div>
           </div>
           <div className="portfolio-container">

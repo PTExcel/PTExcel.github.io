@@ -40,12 +40,7 @@ a {
   }
 }
 
-.nav-links a {
-  // color: #fff;
-}
-
 /* LOGO */
-
 .logo {
   font-size: 32px;
   display: flex;
@@ -127,6 +122,11 @@ input[type="checkbox"] {
       flex-direction: column;
       padding-top: 0;
     }
+  }
+
+  .portfolio.box-shadow-full {
+    flex-direction: column;
+    padding-top: 0;
   }
 }
 
@@ -270,10 +270,12 @@ $desktop: 1024px;
   }
   .title-box {
     text-align: center;
-    padding-top: 2em;
     strong {
-      color: teal;
+      font-style: italic;
       font-size: 1.1em;
+    }
+    div {
+      text-align: justify;
     }
   }
   .title-a {
@@ -431,6 +433,7 @@ $desktop: 1024px;
 }
 .title-box-2 {
   margin-bottom: 3rem;
+  position: relative;
 }
 
 .title-left {
@@ -465,15 +468,25 @@ ABOUT
 }
 
 .skill-mf .progress {
+  height: 0.7rem;
+  position: relative;
   background-color: #cde1f8;
+  overflow: hidden;
   margin: 0.5rem 0 1.2rem 0;
   border-radius: 0;
-  height: 0.7rem;
+  span {
+    display: block;
+    height: 100%;
+  }
+  .progress-bar {
+    background-color: teal;
+    animation: progressBar 3s ease-in-out;
+  }
 }
 
-.skill-mf .progress .progress-bar {
-  height: 0.7rem;
-  background-color: teal;
+@keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
 }
 
 .contact {
