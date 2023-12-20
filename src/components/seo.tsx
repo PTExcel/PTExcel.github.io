@@ -7,6 +7,7 @@ interface SeoData {
   pathname: string;
   children: any;
 }
+
 export const SEO = ({ title, description, pathname, children }: SeoData) => {
   const {
     title: defaultTitle,

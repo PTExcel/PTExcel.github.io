@@ -38,7 +38,7 @@ const About = ({ data }: PageProps<Queries.Query>) => {
             </div>
             <div className="about-me">
               <div className="title-box-2">
-                <h5 className="title-left">About Me</h5>
+                <h1 className="title-left">About Me</h1>
               </div>
               <div dangerouslySetInnerHTML={{ __html: html }} />
               <Lottie

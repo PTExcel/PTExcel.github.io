@@ -67,7 +67,7 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
           <div>
             <div className="header-box">
               <div className="title-box">
-                <h3 className="title-a">Portfolio</h3>
+                <h1 className="title-a">Portfolio</h1>
                 <div dangerouslySetInnerHTML={{ __html: state.html }} />
                 <div className="line-mf"></div>
               </div>
@@ -90,10 +90,10 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
                       className="card__image"
                     />
                     <figcaption className="card__caption">
-                      <h2 className="card__title">
+                      <h1 className="card__title">
                         {item.title}
                         <div className="card__subTitle">{item.subTitle}</div>
-                      </h2>
+                      </h1>
                       <p className="card__snippet">{item.technologies}</p>
 
                       <a onClick={handleReadMore(item)} className="card__button">
@@ -108,15 +108,16 @@ const Work = ({ data }: PageProps<Queries.Query>) => {
 
         <Rodal visible={showDialog} onClose={handleCloseDialog}>
           <div className='porfolio-modal'>
-          {!!selectedPorfolio &&
-          <>
-            <h1>{`${selectedPorfolio.subTitle}`}</h1>
-            <h4>{`${selectedPorfolio.title} - ${selectedPorfolio.position}`}</h4>
-            <div>{`From ${formatDateString(selectedPorfolio.startDate)}`}{selectedPorfolio.endDate ? ` to ${formatDateString(selectedPorfolio.endDate)}`: ' onwards'}</div>
-            <div className='porfolio-modal__details' dangerouslySetInnerHTML={{ __html: selectedPorfolio.details?.html }} />
-            <div>{`Technologies: ${selectedPorfolio.technologies.replaceAll(' ', ', ')}`}</div>
-          </>
-
+          { !!selectedPorfolio &&
+            <>
+              <h1>{`${selectedPorfolio.subTitle}`}</h1>
+              <h4>{`${selectedPorfolio.title} - ${selectedPorfolio.position}`}</h4>
+              <div>{`From ${formatDateString(selectedPorfolio.startDate)}`}{selectedPorfolio.endDate ? ` to ${formatDateString(selectedPorfolio.endDate)}`: ' onwards'}</div>
+              <div className='porfolio-modal__details'>
+                <div dangerouslySetInnerHTML={{ __html: selectedPorfolio.details?.html }} />
+                <div>{`Technologies: ${selectedPorfolio.technologies.replaceAll(' ', ', ')}`}</div>
+              </div>
+            </>
           }
 
 
